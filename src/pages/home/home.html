@@ -1,14 +1,56 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      EA HELP
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+  <div class="information">
+    <h1>Case information</h1>
+  </div>
+  <div class="inputs-container">
+    <h6>What can we help you with?</h6>
+    <h6>Select the game or service.*</h6>
+    <title-tile
+      type="product"
+      [value]="product?.name || ''"
+      placeHolder="Search any EA product"
+    ></title-tile>
+
+    <div *ngIf="product">
+      <h6>What platform are you playing on?*</h6>
+      <title-tile
+        type="platform"
+        [value]="platform?.name || ''"
+        placeHolder="Select platform"
+      ></title-tile>
+    </div>
+
+    <div *ngIf="platform">
+      <h6>Select topic*</h6>
+      <title-tile
+        type="topic"
+        [value]="topic?.name || ''"
+        placeHolder="Select topic"
+      ></title-tile>
+    </div>
+
+    <div *ngIf="topic">
+      <h6>Select issue*</h6>
+      <title-tile
+        type="issue"
+        [value]="issue?.name || ''"
+        placeHolder="Select issue"
+      ></title-tile>
+    </div>
+
+    <div *ngIf="issue">
+      <button ion-button icon-start color="dark" block (click)="sendEmail()">
+        <ion-icon name="mail"></ion-icon>
+        Send Email
+      </button>
+    </div>
+  </div>
 </ion-content>

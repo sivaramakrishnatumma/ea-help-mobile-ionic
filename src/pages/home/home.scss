@@ -1,3 +1,15 @@
 page-home {
-
+  .information {
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #f5f5f5;
+    padding: 2rem 0 1.5rem;
+    font-weight: 700;
+    font-family: unset;
+    letter-spacing: 1px;
+  }
+  .inputs-container {
+    padding: 0 2rem;
+    margin-bottom: 3rem;
+  }
 }

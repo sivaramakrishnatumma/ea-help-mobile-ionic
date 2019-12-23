@@ -1,0 +1,13 @@
+title-tile {
+  .search-input {
+    height: 48px;
+    width: 100%;
+    text-overflow: ellipsis;
+    margin: 15px 0 25px 0;
+    padding: 0 6px !important;
+    padding-left: 24px !important;
+    padding-right: 30px !important;
+    border: 2px solid;
+    background: url(../../assets/imgs/dark-arrow-right.png) no-repeat 93% center;
+  }
+}
