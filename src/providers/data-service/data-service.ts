@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
 
-import { baseURL } from '../../constants/constants';
+import { baseURL } from "../../constants/constants";
 
 /*
   Generated class for the DataServiceProvider provider.
@@ -12,19 +12,24 @@ import { baseURL } from '../../constants/constants';
 @Injectable()
 export class DataServiceProvider {
   constructor(public http: HttpClient) {
-    console.log('Hello DataServiceProvider Provider');
+    console.log("Hello DataServiceProvider Provider");
   }
 
   getProducts() {
     return this.http.get(`${baseURL}/products/`);
   }
 
-  getTopics() {
-    return this.http.get(`${baseURL}/topics/`);
+  getPlatforms(platforms) {
+    return this.http.post(`${baseURL}/platforms/`, {
+      platforms
+    });
   }
 
-  getIssues() {
-    return this.http.get(`${baseURL}/issues/`);
+  getTopics(topics) {
+    return this.http.post(`${baseURL}/topics/`, { topics });
   }
 
+  getIssues(issues) {
+    return this.http.post(`${baseURL}/issues/`, { issues });
+  }
 }

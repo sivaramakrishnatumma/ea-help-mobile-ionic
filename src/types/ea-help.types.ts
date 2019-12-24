@@ -1,35 +1,25 @@
 export interface IProduct {
-  urlName: string;
+  id: string;
   name: string;
-  franchise: Franchise;
-  lifeCycle?: any;
-  releaseDate: string;
-  platforms?: any;
-  productPack: string;
-  isMobile: boolean;
+  platforms?: string[];
+  topics?: string[];
   altNames: string;
-  builtUrlName: string;
-  isFeatured: boolean;
-}
-
-interface Franchise {
-  urlName: string;
+  imageUrl: string;
 }
 
 export interface IPlatform {
   name: string;
   id: string;
+  imageUrl: string;
 }
 
 export interface ITopic {
   id: string;
-  urlName: string;
   name: string;
-  aliasobj: any;
-  enName: string;
+  issues: string[];
 }
 
 export interface IIssue {
   name: string;
-  urlName: string;
+  id: string;
 }

@@ -8,18 +8,12 @@ import { Storage } from "@ionic/storage";
   templateUrl: "home.html"
 })
 export class HomePage {
-
   private product: IProduct = null;
   private platform: IPlatform = null;
   private topic: ITopic = null;
   private issue: IIssue = null;
 
-  constructor(
-    public navCtrl: NavController,
-    private storage: Storage
-  ) {
-    // this.loadInitialData();
-  }
+  constructor(public navCtrl: NavController, private storage: Storage) {}
 
   ionViewDidEnter() {
     this.loadInitialData();

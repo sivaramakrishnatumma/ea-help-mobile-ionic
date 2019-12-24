@@ -31,7 +31,7 @@ export class TitlesListPage {
     this.type = this.navParams.get("type");
   }
 
-  ionViewDidLoad() {
+  async ionViewDidLoad() {
     console.log("ionViewDidLoad TitlesListPage");
     this.loader.show();
     if (this.type === "product") {
@@ -40,17 +40,22 @@ export class TitlesListPage {
         this.loader.hide();
       });
     } else if (this.type === "platform") {
-      this.storage.get("product").then((product: IProduct) => {
-        this.items = product.platforms;
-        this.loader.hide();
-      });
+      const product: IProduct = await this.storage.get("product");
+      this.dataService
+        .getPlatforms(product.platforms)
+        .subscribe((platforms: IPlatform[]) => {
+          this.items = platforms;
+          this.loader.hide();
+        });
     } else if (this.type === "topic") {
-      this.dataService.getTopics().subscribe((res: ITopic[]) => {
+      const product: IProduct = await this.storage.get("product");
+      this.dataService.getTopics(product.topics).subscribe((res: ITopic[]) => {
         this.items = res;
         this.loader.hide();
       });
     } else if (this.type === "issue") {
-      this.dataService.getIssues().subscribe((res: ITopic[]) => {
+      const topic: ITopic = await this.storage.get("topic");
+      this.dataService.getIssues(topic.issues).subscribe((res: ITopic[]) => {
         this.items = res;
         this.loader.hide();
       });
